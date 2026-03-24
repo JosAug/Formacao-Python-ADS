@@ -11,10 +11,14 @@ while tentativas_restantes > 0:
     # DESVIO CONDICIONAL: Checando se a senha bate
     if senha_digitada == senha_correta:
         print("\nAcesso concedido! Bem-vindo ao painel.")
-        break  # O comando 'break' destrói o loop imediatamente, parando a repetição
-    else:
-        tentativas_restantes -= 1  # Isso é o mesmo que: tentativas_restantes = tentativas_restantes - 1
-        print("Senha incorreta.\n")
+    tentativas_restantes -= 1 # Se chegou aqui é por que errou então extraímos 1
+
+    if tentativas_restantes > 0:
+        print("Senha incorreta.")
+        print("-" * 20)
+    # Verificamos se agora é a última chance
+    if tentativas_restantes == 1:
+        print ("CUIDADO: ÚLTIMA TENTATIVA ANTES DO BLOQUEIO!")
 
 # LÓGICA DE BLOQUEIO: Se o loop acabou e as tentativas chegaram a zero
 if tentativas_restantes == 0:
